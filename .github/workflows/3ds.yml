@@ -31,15 +31,15 @@ jobs:
           rm Game
           cd ..
           git clone https://github.com/Rubberduckycooly/Sonic-Mania-Decompilation
-          ln -s $(pwd)/RSDKv5-Decompilation/ Sonic-Mania-Decompilation/dependencies/v5_3DS
-          ln -s $(pwd)/Sonic-Mania-Decompilation/SonicMania RSDKv5-Decompilation/Game
+          ln -s $(pwd)/RSDKv5-Decompilation-n3ds/ Sonic-Mania-Decompilation/dependencies/v5_3DS
+          ln -s $(pwd)/Sonic-Mania-Decompilation/SonicMania RSDKv5-Decompilation-n3ds/Game
 
       - name: Build ELF and 3DSX
         run: |
           cd ../Sonic-Mania-Decompilation
           mkdir build
           cd build
-          cmake .. -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake -DGAME_STATIC=ON -DRSDK_PATH="dependencies/v5_3DS" -DRETRO_DISABLE_PLUS=ON
+          cmake .. -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake -DGAME_STATIC=ON -DRSDK_PATH="dependencies/v5_3DS" -DRETRO_DISABLE_PLUS=OFF
           make -j$(nproc)
           echo Build done.
 
