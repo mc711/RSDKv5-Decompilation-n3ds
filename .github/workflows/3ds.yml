@@ -61,5 +61,5 @@ jobs:
       - name: Publish Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: sonicmania
+          name: sonicmania-n3ds
           path: artifacts
